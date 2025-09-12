@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author Wara Pacheco
  * @version 1.0
  */
-public class App extends Application {
+public class AppFlowPane extends Application {
 
     private static Scene scene;
 
@@ -30,7 +30,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/org/dein/fxml/flowPane.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AppFlowPane.class.getResource("/org/dein/fxml/flowPane.fxml"));
 /*        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource( "/org/dein/fxml/flowPane.fxml/fxml/flowPane.fxml"));*/
         scene = new Scene(fxmlLoader.load());
         stage.setTitle("FlowPane Alignment");
