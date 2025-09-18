@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -20,6 +22,7 @@ import java.io.IOException;
 public class AppFlowPane extends Application {
 
     private static Scene scene;
+    private static final Logger log = LoggerFactory.getLogger(AppFlowPane.class);
 
     /**
      * Este método se ejecuta al arrancar la aplicación.
@@ -30,12 +33,16 @@ public class AppFlowPane extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        log.info("Se está buscando el archivo FXML..");
         FXMLLoader fxmlLoader = new FXMLLoader(AppFlowPane.class.getResource("/org/dein/fxml/flowPane.fxml"));
 /*        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource( "/org/dein/fxml/flowPane.fxml/fxml/flowPane.fxml"));*/
+        log.info("Archivo FXML encontrado..");
         scene = new Scene(fxmlLoader.load());
         stage.setTitle("FlowPane Alignment");
+        log.info("Se está buscando la hoja de estilo css..");
         String url = getClass().getResource("/org/dein/css/styles.css").toString();
         scene.getStylesheets().addAll(url);
+        log.info("Hoja de estilos cargada..");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
